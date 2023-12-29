@@ -25,6 +25,17 @@ In this project I performed exploratory data analysis on YouTube data that I ext
   
 ![](images/yt_docs.png)
 
+- Loading the data
+``` python
+from googleapiclient.discovery import build
+import pandas as pd
+from IPython.display import JSON
+```
+
+![](images/api_key.png)
+
+
+
 ## Authors
 
 - [@Szymon Poparda](https://www.github.com/octokatherine)
