@@ -18,11 +18,7 @@ In this project I performed exploratory data analysis on YouTube data that I ext
 ## Deployment
 
 - Generate an API key
-
-
-```bash
-  npm run deploy
-```
+![](images/yt%api.png)
 
 
 ## Authors
