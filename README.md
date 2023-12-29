@@ -44,6 +44,7 @@ youtube = build(
 ```
 
 ``` python
+# view response
 request = youtube.channels().list(
     part="snippet,contentDetails,statistics",
     id=','.join(channel_ids)
@@ -71,6 +72,30 @@ def get_channel_stats(youtube, channel_ids):
         
     return all_data
 ```
+
+``` python
+channel_statistics = get_channel_stats(youtube, channel_ids)
+channels_data_df = pd.DataFrame(channel_statistics)
+channels_data_df
+```
+
+- Change data types
+``` python
+channels_data_df['Subscribers'] = pd.to_numeric(channels_data_df['Subscribers'])
+channels_data_df['Views'] = pd.to_numeric(channels_data_df['Views'])
+channels_data_df['Total_videos'] = pd.to_numeric(channels_data_df['Total_videos'])
+channels_data_df.dtypes
+```
+
+- Visualize
+``` python
+import seaborn as sns
+sns.set(rc={'figure.figsize':(10,8)})
+ax = sns.barplot(x='Channel_name', y='Subscribers', data=channels_data_df)
+```
+
+![](images/subscribers.png)
+
 
 ## Authors
 
