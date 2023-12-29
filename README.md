@@ -20,6 +20,8 @@ In this project I performed exploratory data analysis on YouTube data that I ext
 - Generate an API key
 ![](images/yt_api.png)
 
+- Set up an enviroment in Jupyter Notebooks by using "pip install"
+![](images/yt_docs.png)
 
 ## Authors
 
