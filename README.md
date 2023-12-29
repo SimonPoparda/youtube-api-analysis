@@ -18,7 +18,7 @@ In this project I performed exploratory data analysis on YouTube data that I ext
 ## Deployment
 
 - Generate an API key
-![](images/yt%api.png)
+![](images/yt%20api.png)
 
 
 ## Authors
