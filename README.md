@@ -120,15 +120,15 @@ def get_video_ids(youtube, chosen_channel_ID):
 
     #NEXT PAGE TOKEN
     next_page_token = response.get('nextPageToken')
-    more_pages = 1
+    more_pages = True
 
-    while more_pages == 1:
+    while more_pages == True:
         if next_page_token is None:
-            more_pages = 0
+            more_pages = False
         else:
             request = youtube.playlistItems().list(
                 part="contentDetails",
-                playlistId=playlist_id,
+                playlistId=chosen_channel_ID,
                 maxResults=50,
                 pageToken= next_page_token
             )
