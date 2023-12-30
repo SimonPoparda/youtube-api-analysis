@@ -171,6 +171,7 @@ def get_video_details(youtube, video_ids):
 videos_data_df = pd.DataFrame(video_details)
 videos_data_df
 ```
+![](images/dataframe.png)
 
 ## Authors
 
