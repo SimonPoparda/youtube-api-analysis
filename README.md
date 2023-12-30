@@ -14,8 +14,8 @@ In this project I performed exploratory data analysis on YouTube data that I ext
 
 
 
-## Deployment
-# 1 Section of this project
+# Deployment
+## Getting statistics for the channels
 
 - Generate an API key
   
@@ -94,9 +94,83 @@ sns.set(rc={'figure.figsize':(10,8)})
 ax = sns.barplot(x='Channel_name', y='Subscribers', data=channels_data_df)
 ```
 
-- Generate an API key
+## Getting statistics for the videos
 
-![](images/subscribers.png)
+- Choosing the channel that I want to analyse
+``` python
+choose_channel = 'Szymon mówi'
+chosen_channel_ID = channels_data_df.loc[channels_data_df['Channel_name']==choose_channel]['Playlist_id'].iloc[0]
+chosen_channel_ID
+```
+
+- Collecting video_ids
+``` python
+def get_video_ids(youtube, chosen_channel_ID):
+    request = youtube.playlistItems().list(
+    part="contentDetails",
+    playlistId=chosen_channel_ID,
+    maxResults=50
+    )
+    response = request.execute()
+
+    video_ids = []
+
+    for i in range(len(response['items'])):
+        video_ids.append(response['items'][i]['contentDetails']['videoId'])
+
+    #NEXT PAGE TOKEN
+    next_page_token = response.get('nextPageToken')
+    more_pages = 1
+
+    while more_pages == 1:
+        if next_page_token is None:
+            more_pages = 0
+        else:
+            request = youtube.playlistItems().list(
+                part="contentDetails",
+                playlistId=playlist_id,
+                maxResults=50,
+                pageToken= next_page_token
+            )
+            response = request.execute()
+
+            for i in range(len(response['items'])):
+                video_ids.append(response['items'][i]['contentDetails']['videoId'])
+
+            next_page_token = response.get('nextPageToken')
+
+    return video_ids
+  ```
+- Getting the video details
+``` python
+def get_video_details(youtube, video_ids):
+    all_video_stats = []
+
+    for i in range(0, len(video_ids), 50):
+        request = youtube.videos().list(
+            part="snippet,contentDetails,statistics",
+            id=",".join(video_ids[i:i+50]) #bierze po 50 itemów z listy, bo więcej się nie dało
+        )
+        response = request.execute()
+
+        for i in range(len(response['items'])):
+            video_stats = dict(
+                Title=response['items'][i]['snippet']['title'],
+                Published_date=response['items'][i]['snippet']['publishedAt'],
+                Duration=response['items'][i]['contentDetails']['duration'],
+                Views=response['items'][i]['statistics']['viewCount'],
+                Likes=response['items'][i]['statistics']['likeCount'],
+                Comments=response['items'][i]['statistics']['commentCount']
+            )
+            all_video_stats.append(video_stats)
+
+    return all_video_stats
+```
+
+``` python
+videos_data_df = pd.DataFrame(video_details)
+videos_data_df
+```
 
 ## Authors
 
