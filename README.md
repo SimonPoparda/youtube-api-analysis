@@ -15,6 +15,7 @@ In this project I performed exploratory data analysis on YouTube data that I ext
 
 
 ## Deployment
+# 1 Section of this project
 
 - Generate an API key
   
@@ -92,6 +93,8 @@ import seaborn as sns
 sns.set(rc={'figure.figsize':(10,8)})
 ax = sns.barplot(x='Channel_name', y='Subscribers', data=channels_data_df)
 ```
+
+- Generate an API key
 
 ![](images/subscribers.png)
 
