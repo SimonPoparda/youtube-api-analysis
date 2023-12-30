@@ -1,5 +1,3 @@
-pip install google-api-python-client
-
 import streamlit as st
 import pandas as pd
 from googleapiclient.discovery import build
