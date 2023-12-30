@@ -96,6 +96,15 @@ ax = sns.barplot(x='Channel_name', y='Subscribers', data=channels_data_df)
 
 ![](images/subscribers.png)
 
+- Hosting on streamlit
+(https://psychic-space-fiesta-jjqr649r6qfp7wj-8502.app.github.dev/)
+``` python
+channels_data_df['Subscribers'] = pd.to_numeric(channels_data_df['Subscribers'])
+channels_data_df['Views'] = pd.to_numeric(channels_data_df['Views'])
+channels_data_df['Total_videos'] = pd.to_numeric(channels_data_df['Total_videos'])
+channels_data_df.dtypes
+```
+![](images/streamlit.png)
 
 ## Authors
 
