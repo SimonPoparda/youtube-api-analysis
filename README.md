@@ -98,7 +98,7 @@ ax = sns.barplot(x='Channel_name', y='Subscribers', data=channels_data_df)
 
 - Hosting on streamlit
 (https://psychic-space-fiesta-jjqr649r6qfp7wj-8502.app.github.dev/)
-![](images/streamlit.png)
+![](images/streamlit.PNG)
 
 ## Authors
 
