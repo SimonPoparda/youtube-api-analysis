@@ -97,9 +97,6 @@ ax = sns.barplot(x='Channel_name', y='Subscribers', data=channels_data_df)
 
 ![](images/subscribers.png)
 
-- Hosting on streamlit
-![](images/streamlit.PNG)
-
 ## Authors
 
 - [@Szymon Poparda](https://www.github.com/octokatherine)
