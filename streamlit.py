@@ -66,19 +66,3 @@ else:
     ax.set_title("Total Videos")  # Set the title for the bar plot
 
 st.pyplot(fig=ax.get_figure())
-
-# Visualize
-# st.markdown('<p style="font-size:20px;">📈 Visualisation</p>', unsafe_allow_html=True)
-# sns.set(rc={'figure.figsize': (10, 8)})
-
-# ax_1 = sns.barplot(x='Channel_name', y='Subscribers', data=channels_data_df)
-# ax_1.set_title("Total Subsribers")  # Set the title for the bar plot
-# st.pyplot(fig=ax_1.get_figure())
-
-# ax_2 = sns.barplot(x='Channel_name', y='Views', data=channels_data_df)
-# ax_2.set_title("Total Views")  # Set the title for the bar plot
-# st.pyplot(fig=ax_2.get_figure())
-
-# ax_3 = sns.barplot(x='Channel_name', y='Total_videos', data=channels_data_df)
-# ax_3.set_title("Total videos")  # Set the title for the bar plot
-# st.pyplot(fig=ax_3.get_figure())
