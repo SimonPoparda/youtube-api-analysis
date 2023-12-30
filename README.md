@@ -11,6 +11,7 @@ In this project I performed exploratory data analysis on YouTube data that I ext
 - Transform it from JSON file to Pandas Dataframe
 - Clean data (change formats, etc.)
 - Create Visualizations
+- Host my results using Streamlit
 
 
 
