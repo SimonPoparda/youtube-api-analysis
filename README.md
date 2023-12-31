@@ -224,6 +224,12 @@ ax1 = sns.barplot(x='Month', y='Views', data=stats_by_month)
 ```
 ![](images/by_month.png)
 
+
+
+
+## Summary
+With this visualization I completed my project. I found that people are watching the most videos from this particular channel in October, as well as that year 2020 was the best one in terms of positive statistics and many other fascinating things. There are more insights to get from this data so I will surely come back to it.
+
 ## Authors
 
 - [@Szymon Poparda](https://www.github.com/octokatherine)
