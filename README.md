@@ -8,8 +8,8 @@ In this project I performed exploratory data analysis on YouTube data that I ext
 ## Objectives
 
 - Extract data from YouTube channels using API
-- Transform it from JSON file to Pandas Dataframe
-- Clean data (change formats, etc.)
+- Transform data from JSON file to Pandas Dataframe
+- Clean data (change date format, convert to numeric etc.)
 - Create Visualizations
 
 
