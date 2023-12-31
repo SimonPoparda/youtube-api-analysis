@@ -173,6 +173,57 @@ videos_data_df
 ```
 ![](images/dataframe.png)
 
+- Change data types
+``` python
+videos_data_df['Published_date'] = pd.to_datetime(videos_data_df['Published_date']).dt.date
+videos_data_df['Views'] = pd.to_numeric(videos_data_df['Views'])
+videos_data_df['Comments'] = pd.to_numeric(videos_data_df['Comments'])
+videos_data_df['Likes'] = pd.to_numeric(videos_data_df['Likes'])
+videos_data_df.dtypes
+```
+
+## Analysis
+- Find top 10 most successfull videos
+``` python
+top10_videos = videos_data_df.sort_values(by='Views', ascending=False).head(10)
+```
+
+``` python
+import matplotlib.pyplot as plt
+ax1 = sns.barplot(x='Views', y='Title', data=top10_videos, orient='h')
+```
+![](images/top10.png)
+
+- Statistics by year and month
+``` python
+videos_data_df['Published_date'] = pd.to_datetime(videos_data_df['Published_date'])
+videos_data_df['Year'] = videos_data_df['Published_date'].dt.year
+videos_data_df['Month'] = videos_data_df['Published_date'].dt.strftime('%b')
+```
+
+By year
+``` python
+stats_by_year = videos_data_df.groupby(['Year']).sum().reset_index()
+stats_by_year = stats_by_year[['Year', 'Views', 'Likes', 'Comments']]
+ax1 = sns.barplot(x='Year', y='Views', data=stats_by_year)
+```
+![](images/by_year.png)
+
+By month
+``` python
+stats_by_month = videos_data_df.groupby('Month').sum().reset_index()
+stats_by_month = stats_by_month[['Month', 'Views', 'Likes', 'Comments']]
+```
+``` python
+sort_order = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+stats_by_month.index = pd.CategoricalIndex(stats_by_month['Month'], categories=sort_order, ordered=True)
+stats_by_month = stats_by_month.sort_index()
+```
+``` python
+ax1 = sns.barplot(x='Month', y='Views', data=stats_by_month)
+```
+![](images/by_month.png)
+
 ## Authors
 
 - [@Szymon Poparda](https://www.github.com/octokatherine)
