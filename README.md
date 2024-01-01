@@ -232,5 +232,5 @@ With this visualization I completed my project. I found that people are watching
 
 ## Authors
 
-- [@Szymon Poparda](https://www.github.com/octokatherine)
+- [@Szymon Poparda](https://www.linkedin.com/in/szymon-poparda-02b96a248/)
 
